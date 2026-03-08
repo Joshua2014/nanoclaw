@@ -120,6 +120,7 @@ function buildVolumeMounts(
     '.claude',
   );
   fs.mkdirSync(groupSessionsDir, { recursive: true });
+  fs.mkdirSync(path.join(groupSessionsDir, 'debug'), { recursive: true, mode: 0o777 });
   const settingsFile = path.join(groupSessionsDir, 'settings.json');
   if (!fs.existsSync(settingsFile)) {
     fs.writeFileSync(
